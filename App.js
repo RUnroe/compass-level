@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Swiper from 'react-native-swiper';
-
+import CompassView from './src/Compass';
+import LevelView from './src/Level';
 
 export default function App() {
   return (
@@ -12,22 +13,9 @@ export default function App() {
   );
 }
 
-const CompassView = () => {
-  return (
-    <View style={styles.compassView}>
-      <Text>Compass View</Text>
-    </View>
-  );
-}
 
-const LevelView = () => {
 
-  return (
-    <View style={styles.levelView}>
-      <Text>Level View</Text>
-    </View>
-  );
-}
+
 
 const styles = StyleSheet.create({
   compassView: {
