@@ -1,21 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Swiper from 'react-native-swiper';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <Swiper loop={false}>
+      <CompassView />
+      <LevelView />
+    </Swiper>
+  );
+}
+
+const CompassView = () => {
+  return (
+    <View style={styles.compassView}>
+      <Text>Compass View</Text>
+    </View>
+  );
+}
+
+const LevelView = () => {
+
+  return (
+    <View style={styles.levelView}>
+      <Text>Level View</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  compassView: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB'
+  },
+  levelView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5'
   },
 });
