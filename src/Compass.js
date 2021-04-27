@@ -1,5 +1,5 @@
 import React from 'react';
-import  Magnetometer  from 'expo-sensors';
+import { Magnetometer } from 'expo-sensors';
 import { StyleSheet, Text, View } from 'react-native';
 
 
@@ -17,13 +17,7 @@ const CompassView = () => {
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#9DD6EB'
-    },
-    levelView: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#97CAE5'
-    },
+    }
   });
 
 
