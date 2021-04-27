@@ -47,7 +47,7 @@ const LevelView = () => {
                 highestNum = {index: i, value: Math.abs(data[i])};
             }
         }
-        console.log("removed:", highestNum.index, highestNum.value);
+        // console.log("removed:", highestNum.index, highestNum.value);
         data.splice(highestNum.index, 1);
 
         // console.log(Math.floor(  (((data[1])+70) * (5/7))), 
