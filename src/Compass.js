@@ -33,13 +33,13 @@ const CompassView = () => {
 
     useEffect(() => {
         _subscribe();
-        Magnetometer.setUpdateInterval(16);
+        Magnetometer.setUpdateInterval(60);
         return () => _unsubscribe();
     }, []);
 
 
     const updateDisplay = data => {
-        setRotation( (80 + adjustNum(data.x)) * (9/4) + "deg");
+        setRotation( (Math.floor(adjustNum(data.x)) * (9/4)) + "deg");
     }
 
     const adjustNum = num => {
@@ -49,7 +49,6 @@ const CompassView = () => {
         <View style={styles.compassView}>
             <Text>Compass View</Text>
             <View style={styles.donut}></View>
-            {/* <View style={styles.compass}></View> */}
             <LinearGradient colors={['#eee', '#eee', '#f00']} style={[styles.compass, {transform: [{rotate: rotation}]} ]}>
             </LinearGradient>
             <View style={styles.circle}></View>
