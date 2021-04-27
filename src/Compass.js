@@ -43,7 +43,7 @@ const CompassView = () => {
     }
 
     const adjustNum = num => {
-        return( Math.round(num*100));
+        return( Math.round(num));
     }
     return (
         <View style={styles.compassView}>
