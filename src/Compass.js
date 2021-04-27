@@ -8,6 +8,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height
 
 const CompassView = () => {
+    const [rotation, setRotation] = useState("0deg");
     const [data, setData] = useState({
         x: 0,
         y: 0,
@@ -19,7 +20,8 @@ const CompassView = () => {
     const _subscribe = () => {
     setSubscription(
         Magnetometer.addListener(result => {
-        setData(result);
+            setData(result);
+            updateDisplay(result);
         })
     );
     };
@@ -35,6 +37,11 @@ const CompassView = () => {
         return () => _unsubscribe();
     }, []);
 
+
+    const updateDisplay = data => {
+        setRotation( (80 + adjustNum(data.x)) * (9/4) + "deg");
+    }
+
     const adjustNum = num => {
         return( Math.round(num*100));
     }
@@ -43,7 +50,7 @@ const CompassView = () => {
             <Text>Compass View</Text>
             <View style={styles.donut}></View>
             {/* <View style={styles.compass}></View> */}
-            <LinearGradient colors={['#eee', '#eee', '#f00']} style={styles.compass}>
+            <LinearGradient colors={['#eee', '#eee', '#f00']} style={[styles.compass, {transform: [{rotate: rotation}]} ]}>
             </LinearGradient>
             <View style={styles.circle}></View>
             
